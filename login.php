@@ -1,8 +1,8 @@
 <?php
-$db = mysqli_connect("localhost","root","","db_vols2");
+$db = new PDO("mysql:host=localhost;dbname=db_gestionVols","root",""); 
 
 session_start(); // ouvrir une session
-if (isset($_SESSION['username'])) { // si il y'a une session ouvert
+if (isset($_SESSION['admine'])) { // si il y'a une session ouvert
     header('location: admine.php'); // redirect vers la page admine
     exit();
 } elseif (isset($_SESSION['user'])) {
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // si la methode de la formulaire es
     $count = $stmt->rowCount();
 
     if ($count > 0) {
-        $_SESSION['username'] = $username; // SESSION USERNAME
+        $_SESSION['admine'] = $username; // SESSION USERNAME
         $_SESSION['id'] = $row['userID']; // SESSION ID
         header('location: admine.php'); // REDIRECT VERS PAGE admine
         exit();

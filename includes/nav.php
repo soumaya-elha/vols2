@@ -27,6 +27,16 @@
       <a class="nav-item nav-link " href="#">Profil</a>
       <a class="nav-item nav-link " href="login.php">login</a>
       <a class="nav-item nav-link" href="inscription.php">Inscription</a>
+      
+       <?php
+                        // echo $row;
+                        if (isset($_SESSION['admine']) || isset($_SESSION['user'])  ) {
+                         
+                         echo '<a class="nav-item nav-link" href="logout.php">Conix</a>';
+                      
+                        }
+            ?>
     </div>
   </div>
 </nav>
+
